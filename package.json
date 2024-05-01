@@ -6,6 +6,11 @@
   "scripts": {
     "start": "node index.js"
   },
+  
+  "engines": {
+	  "node": "18.x"
+  },
+  
   "dependencies": {
     "firebase-admin": "^12.1.0",
     "node-cron": "^3.0.0"
