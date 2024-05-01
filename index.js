@@ -28,8 +28,8 @@ function getRandomInt(min, max) {
 function updateDocuments() {
   // Update document 'a'
   const randomPriceA = getRandomInt(1, 6);
-  db.collection('market').doc('fishPrices').collection('a').doc('price').set({
-    value: randomPriceA
+  db.collection('market').doc('fishPrices').update({
+    a: randomPriceA
   })
   .then(() => {
     console.log('Document A updated with price:', randomPriceA);
@@ -40,8 +40,8 @@ function updateDocuments() {
 
   // Update document 'b'
   const randomPriceB = getRandomInt(2, 16);
-  db.collection('market').doc('fishPrices').collection('b').doc('price').set({
-    value: randomPriceB
+  db.collection('market').doc('fishPrices').update({
+    b: randomPriceB
   })
   .then(() => {
     console.log('Document B updated with price:', randomPriceB);
@@ -51,10 +51,11 @@ function updateDocuments() {
   });
 }
 
-// Schedule the cron job to run every minute
+// Schedule the cron job to run every hour (at minute 0)
 cron.schedule('* * * * *', () => {
   updateDocuments();
 });
+
 
 // Start the Express server
 const PORT = process.env.PORT || 3000;
