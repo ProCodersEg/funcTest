@@ -42,7 +42,7 @@ function updateDocuments() {
 }
 
 // Schedule the cron job to run every hour (at minute 0)
-cron.schedule('* * * * *', () => {
+cron.schedule('0 * * * *', () => {
   updateDocuments();
 });
 
