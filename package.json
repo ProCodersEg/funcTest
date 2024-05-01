@@ -4,7 +4,7 @@
   "description": "Node.js cron job for updating Firestore documents",
   "main": "index.js",
   "scripts": {
-    "start": "node cronjob.js"
+    "start": "node index.js"
   },
   "dependencies": {
     "firebase-admin": "^12.1.0",
