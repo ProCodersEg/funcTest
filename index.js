@@ -28,26 +28,16 @@ function getRandomInt(min, max) {
 function updateDocuments() {
   // Update document 'a'
   const randomPriceA = getRandomInt(1, 6);
-  db.collection('market').doc('fishPrices').update({
-    a: randomPriceA
-  })
-  .then(() => {
-    console.log('Document A updated with price:', randomPriceA);
-  })
-  .catch(error => {
-    console.error('Error updating document A:', error);
-  });
-
-  // Update document 'b'
   const randomPriceB = getRandomInt(2, 16);
-  db.collection('market').doc('fishPrices').update({
+  db.collection('market').doc('fishPrices').set({
+    a: randomPriceA,
     b: randomPriceB
   })
   .then(() => {
-    console.log('Document B updated with price:', randomPriceB);
+    console.log('Document updated with prices:', randomPriceA, randomPriceB);
   })
   .catch(error => {
-    console.error('Error updating document B:', error);
+    console.error('Error updating document:', error);
   });
 }
 
