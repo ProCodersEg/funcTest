@@ -2,7 +2,7 @@ const admin = require('firebase-admin');
 const cron = require('node-cron');
 
 // Initialize Firestore
-const serviceAccount = require('./serviceAccountKey.json');
+const serviceAccount = require('./serviceAccountKey.json'); // Update with your Firebase service account key path
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
 });
@@ -13,7 +13,7 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-// Add error handling to updateDocuments function
+// Function to update documents
 function updateDocuments() {
   // Update document 'a'
   const randomPriceA = getRandomInt(1, 6);
@@ -40,12 +40,7 @@ function updateDocuments() {
   });
 }
 
-// Add error handling to cron job scheduling
-try {
-  // Schedule the cron job to run every minute
-  cron.schedule('* * * * *', () => {
-    updateDocuments();
-  });
-} catch (error) {
-  console.error('Error scheduling cron job:', error);
-}
+// Schedule the cron job to run every minute
+cron.schedule('* * * * *', () => {
+  updateDocuments();
+});
