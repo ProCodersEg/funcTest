@@ -15,7 +15,7 @@ const app = express();
 
 // Define a route for updating documents
 app.get('/update-documents', (req, res) => {
-  updateDocuments();
+  //updateDocuments();
   res.send('Documents updated successfully!');
 });
 
@@ -47,9 +47,9 @@ cron.schedule('0 * * * *', () => {
 });
 
 // Schedule the cron job to run every 10 minutes
-cron.schedule('*/10 * * * *', () => {
-  console.error('Refreshed');
-});
+//cron.schedule('*/10 * * * *', () => {
+  //console.error('Refreshed');
+//});
 
 // Start the Express server
 const PORT = process.env.PORT || 3000;
