@@ -45,9 +45,3 @@ function updateDocuments() {
 cron.schedule('* * * * *', () => {
   updateDocuments();
 });
-
-// Bind to a port (3000 in this example)
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
