@@ -1,3 +1,4 @@
+// Import required modules
 const admin = require('firebase-admin');
 const cron = require('node-cron');
 
@@ -43,4 +44,10 @@ function updateDocuments() {
 // Schedule the cron job to run every minute
 cron.schedule('* * * * *', () => {
   updateDocuments();
+});
+
+// Bind to a port (3000 in this example)
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
